@@ -1,4 +1,4 @@
 package user;
 
-public class Admin implements User {
+public class Admin implements UsersType {
 }
