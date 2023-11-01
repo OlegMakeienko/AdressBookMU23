@@ -69,6 +69,6 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" + "contactId=" + contactId + ", firstName=" + firstName + ", lastName=" + lastName + ", phone=" + phone + ", email=" + email + '}';
+        return "Contact{" + "contactId: " + contactId + ", firstName: " + firstName + ", lastName: " + lastName + ", phone: " + phone + ", email: " + email + '}';
     }
 }
