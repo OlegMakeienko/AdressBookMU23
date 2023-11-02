@@ -17,7 +17,7 @@ public class ContactSimpleDAO implements ContactDAO {
 
     @Override
     public void updateContact(Contact contact) {
-        Contact oldContact = getContact(contact.getContactId());
+        Contact oldContact = getContactWithId(contact.getContactId());
         if(oldContact != null) {
             oldContact.setFirstName(contact.getFirstName());
             oldContact.setLastName(contact.getLastName());
@@ -37,7 +37,7 @@ public class ContactSimpleDAO implements ContactDAO {
     }
 
     @Override
-    public Contact getContact(Long contactId) {
+    public Contact getContactWithId(Long contactId) {
         for(Contact contact : contacts) {
             if(contact.getContactId().equals(contactId)) {
                 return contact;
@@ -47,13 +47,34 @@ public class ContactSimpleDAO implements ContactDAO {
     }
 
     @Override
-    public List<Contact> findContacts() {
+    public ArrayList<Contact> getContactWithFirstname(String firstName) {
+        ArrayList<Contact> contactsWithNames = new ArrayList<>();
+        for(int i = 0; i < contacts.size(); i++) {
+            if (contacts.get(i).getFirstName().equals(firstName)) {
+                contactsWithNames.add(contacts.get(i));
+            }
+        }
+        return contactsWithNames;
+    }
+
+    @Override
+    public Contact getContactWithLastname(String lastName) {
+        for(Contact contact : contacts) {
+            if(contact.getLastName().equals(lastName)) {
+                return contact;
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public List<Contact> listWithAllContacts() {
         return contacts;
     }
 
     private Long generateContactId() {
         Long contactId = Math.round(Math.random() * 1000 + System.currentTimeMillis());
-        while(getContact(contactId) != null) {
+        while(getContactWithId(contactId) != null) {
             contactId = Math.round(Math.random() * 1000 + System.currentTimeMillis());
         }
         return contactId;

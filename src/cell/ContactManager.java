@@ -1,5 +1,6 @@
 package cell;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class ContactManager { //Admin
@@ -20,11 +21,19 @@ public class ContactManager { //Admin
         dao.deleteContact(contactId);
     }
 
-    public Contact getContact(Long contactId) {
-        return dao.getContact(contactId);
+    public Contact getContactWithID(Long contactId) {
+        return dao.getContactWithId(contactId);
     }
 
-    public List<Contact> findContacts() {
-        return dao.findContacts();
+    public ArrayList<Contact> getContactWithFirstname(String firstName) {
+        return dao.getContactWithFirstname(firstName);
+    }
+
+    public Contact getContactWithLastname(String lastName) {
+        return dao.getContactWithLastname(lastName);
+    }
+
+    public List<Contact> allContacts() {
+        return dao.listWithAllContacts();
     }
 }

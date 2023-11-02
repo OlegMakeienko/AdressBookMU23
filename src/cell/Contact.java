@@ -35,6 +35,7 @@ public class Contact {
         this.contactId = contactId;
     }
 
+
     public String getFirstName() {
         return firstName;
     }
@@ -69,6 +70,10 @@ public class Contact {
 
     @Override
     public String toString() {
-        return "Contact{" + "contactId: " + contactId + ", firstName: " + firstName + ", lastName: " + lastName + ", phone: " + phone + ", email: " + email + '}';
+        return "\nContact: " + "ID: " + contactId
+                + ", \n         firstName: " + firstName
+                + ", \n         lastName: " + lastName
+                + ", \n         phone: " + phone +
+                ", \n         email: " + email;
     }
 }
